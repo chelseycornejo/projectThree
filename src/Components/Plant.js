@@ -1,6 +1,5 @@
 // PlantInfo.js
 import axios from 'axios';
-import {useState} from 'react';
 
 // COMPONENTS
 import Form from './Form.js';
@@ -14,17 +13,20 @@ const Plant = () => {
     // initialize state to keep track of the API call
     const [plants, setPlants] = useState([]);
     // initialize state to keep track of the plant genus input
-    const [plantGenus, setPlantGenus] = useState(null);
+    const [plantGenus, setPlantGenus] = useState('');
     
 
     // 2 Define a submit event handler which will be passed down via props to the Form component 
     // when this event handler function is called (i.e., when the form is submitted) it will trigger a call to the weather API
 
-    const handleSubmit = () => {
-        e.preventDefault(); 
-        
+    const handleChange = (e) => {
         setPlantGenus(e.target.value);
 
+    }
+    
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        console.log('you submitted the form')
         axios({
             url: 'https://perenual.com/api/species-list',
             params: {
@@ -34,13 +36,16 @@ const Plant = () => {
             }
         }).then((apiData) => {
             setPlants(apiData.data.data);
+            console.log(apiData.data.data);
         }) 
 
+        setPlantGenus('');
     }
 
 
+
     return(
-        <Form handleSubmit={handleSubmit} />
+        <Form handleSubmit={handleSubmit} handleChange={handleChange} typedValue={plantGenus}/>
     )
 }
 

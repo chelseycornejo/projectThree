@@ -1,0 +1,22 @@
+@use './variables' as *;
+
+h1 {
+    font-family: $mainHeader;
+    font-size: 6rem;
+    color: $primary;
+    line-height: 6rem;
+    span {
+        display: block;
+
+    }
+}
+
+h2 {
+    font-family: $subHeader;
+    font-size: 2rem;
+    color: $primary;
+}
+
+p {
+    color: $secondary;
+}

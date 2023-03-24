@@ -1,0 +1,39 @@
+@use './variables' as *;
+
+header {
+    display: flex;
+    height: 70vh;
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        padding-top: 100px;
+        h2 {
+            padding-left: 50px;
+        }
+        img {
+            position: absolute;
+            bottom: 29%;
+            z-index: -1;
+            width: 80%; 
+        }
+    }
+    .headerImgs {
+        display: flex;
+        flex-basis: 60%;
+        .img1 {
+            flex-basis: 25%;
+        }
+        .img2 {
+            flex-basis: 45%;
+        }
+        .img3 {
+            flex-basis: 30%;
+        }
+    }
+}
+
+header.wrapper {
+    width: 90%;
+}

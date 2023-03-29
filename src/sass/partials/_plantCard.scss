@@ -1,15 +1,22 @@
 @use './variables.scss' as *;
 
 .plantCardContainer {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    gap: 20px;
-    margin-bottom: 50px;
+    // display: grid;
+    // grid-template-columns: 33% 33% 33%;
+    // gap: 20px;
+    // margin-bottom: 50px;
+    // min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     .card{
         position: relative;
+        flex-basis: calc(33% - 30px);
+        margin: 15px;
         img {
             border-radius: 20px;
-            height: auto;
+            // height: auto;
             display: block;
         }
     }
@@ -28,16 +35,14 @@
     background: rgba(35, 33, 37, 0.6);
     top: unset;
     height: 2.5rem;
-
     bottom: 0;
-    overflow: scroll;
+    overflow: hidden;
     -webkit-transition: height 0.8s ease-in-out;
     -moz-transition: height 0.8s ease-in-out;
     transition: height 0.8s ease-in-out;
 
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-
     h3 {
         font-size: 1.3rem;
         line-height: 50px;
@@ -57,98 +62,43 @@
 
 @media (max-width: 1346px) {
 
-    .plantCardContainer {
-            .card {
-                position: relative;
-                img {
-                    border-radius: 20px 20px 0 0;
-                }
-            }
+    .plantCardContainer .card {
+            flex-basis: calc(50% - 30px);
         }
-    
-        .card:hover .overlay,
-        .overlay:hover {
-            height: auto;
-        }
+}
+
+@media (max-width: 990px) {
+
+    .plantCardContainer .card {
+        flex-basis: calc(50% - 30px);
+    }
+
     .overlay {
-        position: absolute;
-        z-index: 10;
-        border-radius: 0 0 20px 20px;
-        position: absolute;
-        background: $accent;
-        height: 2.5rem;
-        bottom:auto;
-        overflow: hidden;
-        -webkit-transition: height 0.8s ease-in-out;
-        -moz-transition: height 0.8s ease-in-out;
-        transition: height 0.8s ease-in-out;
-
-        -webkit-backdrop-filter: blur(5px);
-        backdrop-filter: blur(5px);
-
-        h3 {
-            line-height: 50px;
-            padding-left: 15px;
-        }
-
-        p {
-            color: white;
-            padding-left: 15px;
-            padding-right: 15px;
-            line-height: 30px;
-        }
-
+        overflow: auto;
     }
 }
 
-// summary {
-//     border: 2px solid #000;
-//     padding: .75em 1em;
-//     cursor: pointer;
-//     position: relative;
-//     padding-left: calc(1.75rem + .75rem + .75rem);
-// }
+@media (max-width: 750px) {
 
-// summary:before {
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     left: .75rem;
-//     content: "↓";
-//     width: 1.75rem;
-//     height: 1.75rem;
-//     background-color: #000;
-//     color: #FFF;
-//     display: inline-flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-shrink: 0;
-// }
+    .plantCardContainer .card {
+        flex-basis: 75%;
+    }
 
-// details[open] summary {
-//     background-color: #eee;
-// }
+    .overlay {
+        overflow: hidden;
+    }
+}
 
-// details[open] summary:before {
-//     content: "↑";
-// }
+@media (max-width: 570px) {
 
-// summary:hover {
-//     background-color: #eee;
-// }
+    .wrapper {
+        width: 100%;
+    }
+    .plantCardContainer .card {
+        flex-basis: 75%;
+    }
 
-// a {
-//     color: inherit;
-//     font-weight: 600;
-//     text-decoration: none;
-//     box-shadow: 0 1px 0 0;
-// }
-
-// a:hover {
-//     box-shadow: 0 3px 0 0;
-// }
-
-// code {
-//     font-family: monospace;
-//     font-weight: 600;
-// }
+    .overlay {
+        overflow: scroll;
+    }
+}

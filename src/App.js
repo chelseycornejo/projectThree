@@ -13,7 +13,7 @@ function App() {
     <Fragment>
       <Header />
       <Plant />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 }

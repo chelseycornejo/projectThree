@@ -20,6 +20,7 @@ const PlantList = (props) => {
             let newPlantArray = [];
 
             props.plantId.map((plantNum) => {
+                return (
                 axios({
                     url: 'https://perenual.com/api/species/details/' + plantNum,
                     params: {
@@ -31,8 +32,7 @@ const PlantList = (props) => {
                     newPlantArray.push(plantObj);
                     // spread operator is making it a new array - safer.
                     setNewPlants([...newPlantArray]);
-                    console.log(newPlantArray);
-                })
+                }))
             })
         }, [props.plantId]);
 
@@ -40,7 +40,6 @@ const PlantList = (props) => {
                 <ul className="plantCardContainer wrapper">
                     
                     {newPlants.map((plants) => {
-                        console.log(plants);
                         return (
                             <PlantCard 
                                 key={plants.id} 

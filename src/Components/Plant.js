@@ -42,7 +42,7 @@ const Plant = () => {
             setPlantGenus('');
             
             plantArray.map((plant) => {
-            idArray.push(plant.id);
+                return idArray.push(plant.id);
             })
 
             setPlantId(idArray);

@@ -17,6 +17,16 @@ h2 {
     color: $primary;
 }
 
+h3 {
+    font-family: $subHeader;
+    font-size: 1.5rem;
+    color: #c8c8c8;
+}
+
 p {
     color: $secondary;
+}
+
+strong {
+    display: inline-block;
 }

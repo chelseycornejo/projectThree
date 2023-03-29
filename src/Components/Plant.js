@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // COMPONENTS
 import Form from './Form.js';
+import PlantList from './PlantList.js';
 
 // Import useState hook
 import { useState } from 'react';
@@ -10,23 +11,23 @@ import { useState } from 'react';
 // Create Plants.js 
 const Plant = () => {
     
-    // initialize state to keep track of the API call
-    const [plants, setPlants] = useState([]);
+    // initialize state to keep track of the API call - NO LONGER NEEDED DUE TO 2ND AXIOS IN PLANTLIST
+    // const [plants, setPlants] = useState([]);
     // initialize state to keep track of the plant genus input
     const [plantGenus, setPlantGenus] = useState('');
-    
 
-    // 2 Define a submit event handler which will be passed down via props to the Form component 
-    // when this event handler function is called (i.e., when the form is submitted) it will trigger a call to the weather API
-
+    // initialize state to keep track of the plant id - this will be for the next API call
+    const [plantId, setPlantId] = useState([]);
+    // Create a function to get the user Plant Family input from Form.js
+        // Utilize useState to save the Plant Family input and pass it down to PlantList via props
     const handleChange = (e) => {
-        setPlantGenus(e.target.value);
 
+        setPlantGenus(e.target.value);
     }
     
     const handleSubmit = (e) => {
+
         e.preventDefault(); 
-        console.log('you submitted the form')
         axios({
             url: 'https://perenual.com/api/species-list',
             params: {
@@ -35,42 +36,26 @@ const Plant = () => {
                 indoor: 1
             }
         }).then((apiData) => {
-            setPlants(apiData.data.data);
-            console.log(apiData.data.data);
-        }) 
+            let idArray = [];
+            const plantArray = apiData.data.data;
 
-        setPlantGenus('');
+            setPlantGenus('');
+            
+            plantArray.map((plant) => {
+            idArray.push(plant.id);
+            })
+
+            setPlantId(idArray);
+        })
     }
-
-
+    
 
     return(
-        <Form handleSubmit={handleSubmit} handleChange={handleChange} typedValue={plantGenus}/>
+        <div>
+            <Form handleSubmit={handleSubmit} handleChange={handleChange} typedValue={plantGenus}/>
+            <PlantList plantId={plantId}/>
+        </div>
     )
 }
 
 export default Plant;
-
-
-
-    // Utilize useEffect to make an API call when the Plant Family input is changed
-        // Create Form.js 
-        // Utilize the function from Plant.js (via props) to set the user input state
-        // Utilize useState to ensure input is a controlled input
-    // Create a function to get the user Plant Family input from Form.js
-    // Utilize useState to save the Plant Family input and pass it down to PlantList via props
-// Create PlantList.js
-    // PlantList.js will receive the array from plants via props
-    // Map through the array in PlantList
-    // Include attributes for img, alt, watering, sunlight, scientific name, key for the PlantCard to pass down to PlantCard.js
-// Create PlantCard.js 
-    // Once info is received from PlantList.js we will render te img
-    // Render an overlay (on hover/focus) or modal (on click) with the plant info
-
-// STRETCH GOALS:
-    // Utilize another API call for specific details (new url, specific ID of plant)
-    // Give the user the ability to filter down by watering needs, sunlight needs, pet friendly 
-
-
-
-    

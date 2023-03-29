@@ -1,19 +1,17 @@
 // Form.js
 
-// Import useState hook
-import { useState } from 'react';
+import { BsSun } from 'react-icons/bs'
 
+// Create Form.js
+// Utilize the functions from Plant.js (via props) to set the user input state
 const Form = (props) => {
 
-    // initialize state to track value of the the text input - making it a controlled input
-    const [textInput, setTextInput] = useState('');
-    
     return (
+        // ensure inputs are controlled using typedValue from plant to pass down "plantGenus" state.
         <form action="" onSubmit={props.handleSubmit}>
-            <div>
-                <label htmlFor="plantGenus">Plant Genus </label>
+            <label htmlFor="plantGenus" className="sr-only">Enter Plant Genus</label>
                 <input type="text" id="plantGenus" placeholder="Plant Genus" value={props.typedValue} onChange={props.handleChange}/>
-            </div>
+            
             <button type="submit">start search</button>
         </form>
     )

@@ -1,20 +1,21 @@
 // Form.js
 
-import { BsSun } from 'react-icons/bs'
-
 // Create Form.js
-// Utilize the functions from Plant.js (via props) to set the user input state
 const Form = (props) => {
 
     return (
-        // ensure inputs are controlled using typedValue from plant to pass down "plantGenus" state.
-        <form action="" onSubmit={props.handleSubmit}>
-            <label htmlFor="plantGenus" className="sr-only">Enter Plant Genus</label>
-                <input type="text" id="plantGenus" placeholder="Plant Genus" value={props.typedValue} onChange={props.handleChange}/>
-            
-            <button type="submit">start search</button>
-        </form>
-    )
-}
+        <section>
+            <h5>Need help with plant care?</h5>
+            <h5>Search up the Plant Genus<span>and find your plant!</span></h5>
+            <form action="" onSubmit={props.handleSubmit}>
+                <label htmlFor="plantGenus" className="sr-only">Enter Plant Genus</label>
+                    {/* ensure inputs are controlled using typedValue from plant to pass down "plantGenus" state. */}
+                    <input type="text" id="plantGenus" placeholder="Monstera, Hoya etc." value={props.typedValue} onChange={props.handleChange}/>
+                <button type="submit">start search</button>
+            </form>
+                {/* conditional render the error message below if props.error exists  */}
+                {props.error && <h4 className="errorMsg">Uh oh! {props.error}</h4>}
+        </section>
+)}
 
 export default Form;

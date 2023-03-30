@@ -9,6 +9,7 @@ header {
         justify-content: center;
         position: relative;
         padding-top: 100px;
+        flex-basis: 50%;
         h1 span {
             color: $accent;
         }
@@ -18,7 +19,7 @@ header {
     }
     .headerImgs {
         display: flex;
-        flex-basis: 60%;
+        flex-basis: 45%;
         flex-shrink: 0.5;
         .img1 {
             flex-basis: 25%;
@@ -26,6 +27,7 @@ header {
         }
         .img2 {
             flex-basis: 45%;
+            // width:
         }
         .img3 {
             flex-basis: 30%;
@@ -39,32 +41,39 @@ header.wrapper {
 }
 
 // MEDIA QUERIES
-@media (max-width: 1142px) {
+@media (max-width: 1247px) {
     header .headerImgs {
-        flex-shrink: 0.3;
-        justify-content: flex-start;
+        justify-content: center;
         .img1 {
+            flex-basis: 40%;
+        }
+        .img2 {
+            flex-basis: 60%;
+        }
+        .img3 {
             display: none;
         }            
     }
 }
 
-@media (max-width: 928px) {
-    header {
-        .headerImgs {
-        flex-shrink: 0;
-        justify-content: flex-start;
+@media (max-width: 990px) {
+    header .headerImgs {
             .img2 {
-                flex-basis: 50%;
+                flex-basis: 80%;
             }
-            .img3 {
+            .img1 {
                 display: none;
             }
         }
     }
+
+@media (max-width: 964px) {
+    header .headerImgs {
+        flex-basis: 30%;
+    }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 820px) {
     header {
         justify-content: center;
         align-content: center;
@@ -100,15 +109,19 @@ header.wrapper {
     }
 }
 
-@media (max-width: 450px) {
-    header .title {
-        h1 {
-            font-size: 3rem;
-            line-height: 3rem;
-        }
 
-        h2 {
-            font-size: 1rem;
+@media (max-width: 450px) {
+    header {
+        height: 55vh;
+        .title {
+            h1 {
+                font-size: 3rem;
+                line-height: 3rem;
+            }
+            
+            h2 {
+                font-size: 1rem;
+            }
         }
     }
 }

@@ -23,8 +23,19 @@ h3 {
     color: #c8c8c8;
 }
 
+h5 {
+    font-family: $instructions;
+    font-size: 1rem;
+    color: $primary;
+    margin: 0;
+}
+
 p {
     color: $secondary;
+}
+
+.plants h4 {
+    text-align: center;
 }
 
 strong {

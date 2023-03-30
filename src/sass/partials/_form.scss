@@ -1,35 +1,67 @@
 @use './variables' as *;
 
-form {
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(30vh - 32px);
-    padding-bottom: 50px;
+    height: auto;
+    margin-bottom: 10px;
     label {
         text-transform: uppercase;
         margin: 10px;
     }
-    input {
-        line-height: 32px;
-        text-align: center;
-        font-family: $baseFont;
-        border: none;
-        background: #f7f4ee;
-        border-radius: 30px;
-        margin: 10px;
-    }
-    
-    button {
-        background-color: $accent;
-        padding: 20px;
-        border: none;
-        color: #fff;
-        text-transform: uppercase;
-        font-size: .8rem;
-        border-radius: 30px;
-        cursor: pointer;
+}
 
+form {
+    display: flex;
+    margin-top: 10px;
+    input {
+            text-align: center;
+            font-family: $baseFont;
+            border: none;
+            background: #f7f4ee;
+            border-radius: 30px 0 0 30px;
+            padding: 20px 0 20px 10px;
+        }
+    
+        button {
+            background-color: $accent;
+            padding: 20px;
+            border: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: .8rem;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+    
+        }
+}
+
+// MEDIA QUERIES
+@media (max-width: 500px) {
+    section h5 span{
+        display: block;
+        text-align: center;
     }
+
+    form {
+        flex-direction: column;
+        input,
+        button {
+            padding: 10px;
+            font-size: 0.8rem;
+            border-radius: 30px;
+        }
+        input {
+            width: 250px;
+        }
+    }
+}
+
+@media (max-width: 416px) {
+    .plants h4 {
+            text-align: center;
+            font-size: 0.8rem;
+        }
 }

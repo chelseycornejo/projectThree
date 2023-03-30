@@ -1,24 +1,27 @@
 // PlantList.js
-
-// Create PlantList.js
-    // PlantList.js will receive the array from plants via props
-    // Map through the array in PlantList
-    // Include attributes for img, alt, watering, sunlight, scientific name, key for the PlantCard to pass down to PlantCard.js
-// Create PlantCard.js 
-    // Once info is received from PlantList.js we will render te img
-    // Render an overlay (on hover/focus) or modal (on click) with the plant info
 import axios from 'axios';
+
+// Import useEffect, useState hooks
 import { useEffect, useState } from 'react';
+
+// COMPONENTS
 import PlantCard from './PlantCard.js';
+
+// ASSETS
 import placeholder from '../assets/placeholder1.png';
 
 const PlantList = (props) => {
     
+    // initialize state for the new plant array that will be used to map through in the secondary axios below for more plant info details
     const [newPlants, setNewPlants] = useState([]);
-    
+
+        // utilize useEffect to only map through the plantsId array and run the axios calls ONLY when the plantId from Plant.js is set.
         useEffect(() => {
+
+            setNewPlants([]);
             let newPlantArray = [];
 
+            // map through the idArray from Plant.js to create the new array of detailed plant objects
             props.plantId.map((plantNum) => {
                 return (
                 axios({
@@ -27,18 +30,17 @@ const PlantList = (props) => {
                         key: process.env.REACT_APP_API_KEY,
                     }
                 }).then((plantData) => {
-
-                    let plantObj = plantData.data;
-                    newPlantArray.push(plantObj);
-                    // spread operator is making it a new array - safer.
-                    setNewPlants([...newPlantArray]);
-                }))
-            })
+                        let plantObj = plantData.data;
+                        newPlantArray.push(plantObj);
+                        setNewPlants([...newPlantArray]);
+                        console.log(plantObj);
+                }));
+            });
         }, [props.plantId]);
 
         return (
                 <ul className="plantCardContainer wrapper">
-                    
+                    {/* map through each plant of the newPlants array and pass the information down to PlantCard.js via props */}
                     {newPlants.map((plants) => {
                         return (
                             <PlantCard 

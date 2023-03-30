@@ -6,7 +6,7 @@ const Form = (props) => {
     return (
         <section>
             <h5>Need help with plant care?</h5>
-            <h5>Search up the Plant Genus<span>and find your plant!</span></h5>
+            <h5>Search up the Plant Genus<span> and find your plant!</span></h5>
             <form action="" onSubmit={props.handleSubmit}>
                 <label htmlFor="plantGenus" className="sr-only">Enter Plant Genus</label>
                     {/* ensure inputs are controlled using typedValue from plant to pass down "plantGenus" state. */}

@@ -5,31 +5,3 @@ html { box-sizing: border-box; font-size: 125%;}
 *, *:before, *:after {box-sizing: inherit}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
-
-/* GLOBAL STYLES */
-/* body {
-  font-family: $baseFont;
-} */
-
-.wrapper {
-  max-width: 1440px;
-  width: 85%;
-  margin: 0 auto;
-}
-
-figure {
-  margin: 0;
-}
-
-img {
-  display: block;
-  width: 100%;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}

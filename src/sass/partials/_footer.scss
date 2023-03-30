@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+footer {
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    background: $accent;
+    width: 100vw;
+    p {
+        line-height: 32px;
+    }
+}

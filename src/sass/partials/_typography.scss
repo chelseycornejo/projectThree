@@ -1,0 +1,43 @@
+@use './variables' as *;
+
+h1 {
+    font-family: $mainHeader;
+    font-size: 6rem;
+    color: $primary;
+    line-height: 6rem;
+    span {
+        display: block;
+
+    }
+}
+
+h2 {
+    font-family: $subHeader;
+    font-size: 2rem;
+    color: $primary;
+}
+
+h3 {
+    font-family: $subHeader;
+    font-size: 1.5rem;
+    color: #c8c8c8;
+}
+
+h5 {
+    font-family: $instructions;
+    font-size: 1rem;
+    color: $primary;
+    margin: 0;
+}
+
+p {
+    color: $secondary;
+}
+
+.plants h4 {
+    text-align: center;
+}
+
+strong {
+    display: inline-block;
+}

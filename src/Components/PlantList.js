@@ -33,7 +33,6 @@ const PlantList = (props) => {
                         let plantObj = plantData.data;
                         newPlantArray.push(plantObj);
                         setNewPlants([...newPlantArray]);
-                        console.log(plantObj);
                 }));
             });
         }, [props.plantId]);

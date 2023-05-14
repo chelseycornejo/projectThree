@@ -10,7 +10,7 @@ const Form = (props) => {
             <form action="" onSubmit={props.handleSubmit}>
                 <label htmlFor="plantGenus" className="sr-only">Enter Plant Genus</label>
                     {/* ensure inputs are controlled using typedValue from plant to pass down "plantGenus" state. */}
-                    <input type="text" id="plantGenus" placeholder="Monstera, Hoya etc." value={props.typedValue} onChange={props.handleChange}/>
+                    <input type="text" id="plantGenus" placeholder="Dracaena, Begonia etc." value={props.typedValue} onChange={props.handleChange}/>
                 <button type="submit">start search</button>
             </form>
                 {/* conditional render the error message below if props.error exists  */}
